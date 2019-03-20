@@ -57,12 +57,16 @@ set smartindent
 " Vundle配置
 set nocompatible
 filetype off
-set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
- 
-call vundle#begin('$VIM/vimfiles/bundle/')
+"Windows
+"set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
+"call vundle#begin('$VIM/vimfiles/bundle/')
+"Linux
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'kien/ctrlp.vim'
 call vundle#end()
  
 filetype plugin indent on
