@@ -48,11 +48,11 @@ set expandtab " 将制表符扩展为空格
 set tabstop=4 " 设置编辑时制表符占用空格数
 set shiftwidth=4 "设置格式化时制表符占用空格数
 set softtabstop=4 "让 vim 把连续数量的空格视为一个制表符
-set autochdir "自动设置当前编辑文件目录为工作路径
+"set autochdir "自动设置当前编辑文件目录为工作路径
 
 set cindent
 set autoindent
-set smartindent
+"set smartindent
 
 " Vundle配置
 set nocompatible
@@ -67,6 +67,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
  
 filetype plugin indent on
@@ -76,11 +78,25 @@ filetype plugin indent on
 "<leader>cu，取消选中文本块的注释。
 
 " nerdtree插件操作
-nmap <Leader>tt :NERDTreeToggle<CR>
+nmap <Leader>nt :NERDTreeToggle<CR>
 nmap <Leader>tc :NERDTreeCWD<CR> "切换nerdtree根目录为当前working dir
 
-let NERDTreeWinSize=22 " 设置 NERDTree 子窗口宽度
+let NERDTreeWinSize=32 " 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right" " 设置 NERDTree 子窗口位置
 let NERDTreeShowHidden=1 " 显示隐藏文件
 let NERDTreeMinimalUI=1 " NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1 " 删除文件时自动删除文件对应 buffer
+
+" ctrlsf操作
+nmap <Leader>sp <Plug>CtrlSFPrompt
+
+"ctags操作
+"ctags -R 扫描当前目录和子目录
+":set tags+=/path/to/tags
+"CTRL+] 直接跳转, g] 列出所有标签, CTRL+t 返回 
+
+"tagbar settings
+nmap <Leader>tb :TagbarToggle<CR>
+let tagbar_left=1
+let tagbar_width=32
+
