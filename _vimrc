@@ -12,9 +12,9 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 colorscheme evening
 
 set incsearch
-set ignorecase
+set ignorecase smartcase
 
-nnoremap nw <C-W><C-W> " 遍历窗口
+nnoremap <Leader>nw <C-W><C-W> " 遍历窗口
 nnoremap <Leader>lw <C-W>l
 nnoremap <Leader>hw <C-W>h
 nnoremap <Leader>kw <C-W>k
@@ -50,8 +50,8 @@ set shiftwidth=4 "设置格式化时制表符占用空格数
 set softtabstop=4 "让 vim 把连续数量的空格视为一个制表符
 "set autochdir "自动设置当前编辑文件目录为工作路径
 
-set cindent
-set autoindent
+:set cindent
+"set autoindent
 "set smartindent
 
 " Vundle配置
@@ -69,6 +69,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'fholgado/minibufexpl.vim'
 call vundle#end()
  
 filetype plugin indent on
@@ -78,7 +79,7 @@ filetype plugin indent on
 "<leader>cu，取消选中文本块的注释。
 
 " nerdtree插件操作
-nmap <Leader>nt :NERDTreeToggle<CR>
+nmap <Leader>tt :NERDTreeToggle<CR>
 nmap <Leader>tc :NERDTreeCWD<CR> "切换nerdtree根目录为当前working dir
 
 let NERDTreeWinSize=32 " 设置 NERDTree 子窗口宽度
@@ -99,4 +100,9 @@ nmap <Leader>sp <Plug>CtrlSFPrompt
 nmap <Leader>tb :TagbarToggle<CR>
 let tagbar_left=1
 let tagbar_width=32
+
+"minibufferexpl
+nmap <Leader><Tab> :MBEbn<cr>
+nmap <Leader>b :MBEbp<cr>
+
 
