@@ -70,6 +70,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'fholgado/minibufexpl.vim'
+" tags管理
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'vim-scripts/DfrankUtil'
+Plugin 'vim-scripts/vimprj'
 call vundle#end()
  
 filetype plugin indent on
@@ -91,10 +95,16 @@ let NERDTreeAutoDeleteBuffer=1 " 删除文件时自动删除文件对应 buffer
 " ctrlsf操作
 nmap <Leader>sp <Plug>CtrlSFPrompt
 
+"ctrlp操作
+nnoremap <leader>' :CtrlPTag<CR>
+
 "ctags操作
 "ctags -R 扫描当前目录和子目录
 ":set tags+=/path/to/tags
 "CTRL+] 直接跳转, g] 列出所有标签, CTRL+t 返回 
+nmap <Leader>tn :tnext<CR>
+nmap <Leader>tp :tprevious<CR>
+inoremap <leader>; <C-x><C-o>
 
 "tagbar settings
 nmap <Leader>tb :TagbarToggle<CR>
@@ -104,5 +114,29 @@ let tagbar_width=32
 "minibufferexpl
 nmap <Leader><Tab> :MBEbn<cr>
 nmap <Leader>b :MBEbp<cr>
+
+"保存环境
+set sessionoptions="blank,buffers,globals,localoptions,tabpages,sesdir,folds,help,options,resize,winpos,winsize"
+map <leader>ss :mksession! my.vim<cr> :wviminfo! my.viminfo<cr>
+map <leader>rs :source my.vim<cr> :rviminfo my.viminfo<cr>
+
+"indexer
+"创建.vimprj/my.vim和.vimprj/.indexer_files
+"其中my.vim: 
+"let s:sVimprjPath = expand('<sfile>:p:h')
+"let g:indexer_indexerListFilename = s:sVimprjPath.'/.indexer_files'
+"let g:indexer_dontUpdateTagsIfFileExists = 1
+".indexer_files:
+"[%dir_name(..)%]
+"$VIMPRJ_PROJECT_ROOT
+
+
+
+
+
+
+
+
+
 
 
