@@ -114,6 +114,12 @@ let tagbar_width=32
 "minibufferexpl
 nmap <Leader><Tab> :MBEbn<cr>
 nmap <Leader>b :MBEbp<cr>
+"multi window
+"Ctrl+w+r, 交换窗口
+
+"寄存器
+":reg, 查看所有寄存器的内容
+"Ctrl+r,可以在命令模式 插入模式调用寄存器中的内容
 
 "保存环境
 set sessionoptions="blank,buffers,globals,localoptions,tabpages,sesdir,folds,help,options,resize,winpos,winsize"
